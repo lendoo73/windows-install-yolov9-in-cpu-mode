@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# IDE and test artifacts
+.idea/
+.pytest_cache/
+.coverage
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Generated outputs and downloaded model artifacts
+/runs/
+/wandb/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.trt

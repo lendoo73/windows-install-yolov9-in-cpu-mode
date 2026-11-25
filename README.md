@@ -1,4 +1,41 @@
-# YOLOv9
+# YOLOv9 on Windows CPU
+
+This project packages the [WongKinYiu/YOLOv9](https://github.com/WongKinYiu/yolov9)
+implementation with a Windows CPU installation and inference walkthrough. The upstream implementation and
+its GPL-3.0 license are retained in this repository.
+
+## Install for CPU
+
+Use Python 3.9 and create a virtual environment:
+
+```powershell
+py -3.9 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+```
+
+Install the CPU builds of PyTorch and TorchVision, then the remaining project dependencies:
+
+```powershell
+python -m pip install torch==2.0.1+cpu torchvision==0.15.2+cpu --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r requirements.txt
+```
+
+Download the official `yolov9-c-converted.pt` model from the
+[YOLOv9 v0.1 release](https://github.com/WongKinYiu/yolov9/releases/tag/v0.1) and place it in this
+directory. Model weights are not included in this repository.
+
+Run detection on the bundled sample image:
+
+```powershell
+python detect.py --weights yolov9-c-converted.pt --source data/images/horses.jpg --device cpu
+```
+
+The CPU version is expected to run more slowly than a GPU. See
+[21-108_Install_YOLOv9_in_CPU_Mode.md](21-108_Install_YOLOv9_in_CPU_Mode.md) for the course walkthrough,
+and the [upstream README](https://github.com/WongKinYiu/yolov9/blob/main/README.md) for full project details.
+
+## Upstream project documentation
 
 Implementation of paper - [YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information](https://arxiv.org/abs/2402.13616)
 
